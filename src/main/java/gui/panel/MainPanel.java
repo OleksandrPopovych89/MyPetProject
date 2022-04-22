@@ -6,8 +6,7 @@ import gui.table.MyTableModel;
 import repository.OLRepoDB;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.sql.SQLException;
 
 public class MainPanel extends JFrame {
@@ -26,6 +25,9 @@ public class MainPanel extends JFrame {
         this.setContentPane(mainPanel);
         MyTableModel myTableModel = new MyTableModel(order);
         this.table.setModel(myTableModel);
+        table.setEditingRow(1);
+        table.setEditingRow(6);
+
         this.deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -58,8 +60,18 @@ public class MainPanel extends JFrame {
                 }
             }
         });
+
+
         this.pack();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+
+
     }
 }
+
+//                if (table.getSelectedRow() == 1) {
+//                        order.getEquipmentList().get(table.getSelectedColumn()).setName(e.toString());
+//                        } else if (table.getSelectedRow() == 6) {
+//                        order.getEquipmentList().get(table.getSelectedColumn()).setQuantity(Integer.valueOf(e.toString()));
+//                        }
