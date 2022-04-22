@@ -25,44 +25,38 @@ public class MyTableModel extends AbstractTableModel {
 
     @Override
     public String getColumnName(int column) {
-        switch (column) {
-            case 0:
-                return "№";
-            case 1:
-                return "Найменування";
-            case 2:
-                return "Позначення";
-            case 3:
-                return "Виробник";
-            case 4:
-                return "Артикул";
-            case 5:
-                return "Од.вим.";
-            case 6:
-                return "Кількість";
-        }
-        return "default";
+        return switch (column) {
+            case 0 -> "№";
+            case 1 -> "Найменування";
+            case 2 -> "Позначення";
+            case 3 -> "Виробник";
+            case 4 -> "Артикул";
+            case 5 -> "Од.вим.";
+            case 6 -> "Кількість";
+            default -> "default";
+        };
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        switch (columnIndex) {
-            case 0:
-                return order.getEquipmentList().get(rowIndex).getEqId();
-            case 1:
-                return order.getEquipmentList().get(rowIndex).getName();
-            case 2:
-                return order.getEquipmentList().get(rowIndex).getShortName();
-            case 3:
-                return order.getEquipmentList().get(rowIndex).getVendorName();
-            case 4:
-                return order.getEquipmentList().get(rowIndex).getVendorCode();
-            case 5:
-                return order.getEquipmentList().get(rowIndex).getUnits();
-            case 6:
-                return order.getEquipmentList().get(rowIndex).getQuantity();
-        }
-        return "default";
+        return switch (columnIndex) {
+            case 0 -> order.getEquipmentList().get(rowIndex).getEqId();
+            case 1 -> order.getEquipmentList().get(rowIndex).getName();
+            case 2 -> order.getEquipmentList().get(rowIndex).getShortName();
+            case 3 -> order.getEquipmentList().get(rowIndex).getVendorName();
+            case 4 -> order.getEquipmentList().get(rowIndex).getVendorCode();
+            case 5 -> order.getEquipmentList().get(rowIndex).getUnits();
+            case 6 -> order.getEquipmentList().get(rowIndex).getQuantity();
+            default -> "default";
+        };
+    }
+
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return switch (columnIndex) {
+            case 1, 6 -> true;
+            default -> false;
+        };
     }
 
     public void delete(int[] index) {
