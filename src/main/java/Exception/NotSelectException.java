@@ -1,4 +1,4 @@
-package essence.Exception;
+package Exception;
 
 import java.beans.ExceptionListener;
 

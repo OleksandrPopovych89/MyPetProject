@@ -1,6 +1,6 @@
 package gui.panel;
 
-import essence.Exception.NotSelectException;
+import Exception.NotSelectException;
 import essence.Order;
 import gui.table.MyTableModel;
 import repository.OLRepoDB;
@@ -27,6 +27,15 @@ public class MainPanel extends JFrame {
         this.table.setModel(myTableModel);
         table.setEditingRow(1);
         table.setEditingRow(6);
+
+
+        this.pack();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
+
+
+
+
 
         this.deleteButton.addActionListener(new ActionListener() {
             @Override
@@ -60,11 +69,6 @@ public class MainPanel extends JFrame {
                 }
             }
         });
-
-
-        this.pack();
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
 
 
     }
