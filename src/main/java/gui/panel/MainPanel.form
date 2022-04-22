@@ -53,6 +53,7 @@
                     <properties>
                       <autoCreateRowSorter value="false"/>
                       <dropMode value="USE_SELECTION"/>
+                      <fillsViewportHeight value="false"/>
                       <toolTipText value=""/>
                     </properties>
                     <clientProperties>
